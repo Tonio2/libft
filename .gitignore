@@ -1,0 +1,4 @@
+*.o
+testing/*
+libft.a
+a.out
