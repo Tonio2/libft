@@ -1,4 +1,7 @@
+NAME	=	libft.a
+
 CFLAGS	=	-Wall -Werror -Wextra
+
 SRCS	=	ft_atoi.c	\
 			ft_bzero.c	\
 			ft_calloc.c	\
@@ -45,29 +48,16 @@ SRCS	=	ft_atoi.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 
-BONUS_SRCS	=	
-
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
-
-NAME	=	libft.a
-BONUS_NAME	= libft-bonus.a
-
 all		: $(NAME)
 
 $(NAME) : $(OBJS)
 	ar -rsv $(NAME) $(OBJS)
-
-bonus	: $(BONUS_NAME)
-
-$(BONUS_NAME)	: $(BONUS_OBJS)
-	ar -rs $(BONUS_NAME) $(BONUS_OBJS)
 
 .c.o:
 	gcc -g $(CFLAGS) -o $@ -c $^
 
 clean	:
 	rm -f $(OBJS)
-	rm -f $(BONUS_OBJS)
 
 fclean	:	clean
 	rm -f $(NAME)
